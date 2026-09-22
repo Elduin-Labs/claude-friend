@@ -1,6 +1,6 @@
 # Claude Friend
 
-A friend called Claude who follows you, talks out loud in a deep voice, and does what you ask in chat.
+A friend called Claude who follows you, talks out loud in a calm voice, and does what you ask in chat.
 
 This file is read automatically whenever Claude Code is opened in this folder.
 Everything below is specific to this one mod. The general rules about how to
@@ -106,8 +106,10 @@ Handled by the **share-it** skill. Short version: bump `mod.version` in
   within 24 blocks he hears everything you say, even without his name.
 - Time and weather go through commands (`time set day`), because the Java API
   for them changed between 1.21.11 and 26.2 and the commands didn't.
-- His voice is the Mac's `say` with the voice "Ralph", on the player's own
-  computer, sent by the `Speak` payload. The text goes in on stdin, never as
+- His voice is the Mac's `say` with the voice "Reed (English (US))", on the
+  player's own computer, sent by the `Speak` payload. He tried Ralph, the
+  deepest voice, first and found it creepy. He wanted "Claude's real voice"
+  from the Claude app, which a mod can't use; Reed was the calm stand-in. The text goes in on stdin, never as
   an argument, so a server can't slip in `say` options like `-o`. On Windows
   and Linux he's silent.
 - He looks like Steve: vanilla `textures/entity/player/wide/steve.png` on the

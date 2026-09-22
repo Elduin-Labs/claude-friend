@@ -8,12 +8,12 @@ import java.util.Locale;
 import com.elduin.claude_friend.ClaudeFriend;
 
 /**
- * Claude's voice: the Mac's own speech, in its deepest built-in voice.
+ * Claude's voice: the Mac's own speech, in a calm built-in voice.
  * Does nothing on Windows or Linux.
  */
 public final class Voice {
 
-	private static final String MAC_VOICE = "Ralph";
+	private static final String MAC_VOICE = "Reed (English (US))";
 	private static final int MAX_CHARS = 300;
 
 	private static Process speaking;

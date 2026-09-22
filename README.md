@@ -2,7 +2,7 @@
 
 # Claude Friend
 
-A friend called Claude who follows me around, talks out loud in a deep voice,
+A friend called Claude who follows me around, talks out loud in a calm voice,
 and does what I ask. Type "claude" in chat and he shows up next to you.
 
 Things you can ask him:
