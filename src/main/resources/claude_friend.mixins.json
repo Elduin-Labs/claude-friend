@@ -1,5 +1,5 @@
 {
-  "package": "com.example.modtemplate.mixin",
+  "package": "com.elduin.claude_friend.mixin",
   "required": true,
   "minVersion": "0.8",
   "compatibilityLevel": "${java}",

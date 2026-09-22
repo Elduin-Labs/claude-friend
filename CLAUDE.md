@@ -1,6 +1,6 @@
-# <MOD_DISPLAY_NAME>
+# Claude Friend
 
-<One plain sentence: what this mod does, in Elduin's words.>
+A friend called Claude who follows you, talks out loud in a deep voice, and does what you ask in chat.
 
 This file is read automatically whenever Claude Code is opened in this folder.
 Everything below is specific to this one mod. The general rules about how to
@@ -8,12 +8,12 @@ work with Elduin live in `~/.claude/CLAUDE.md`.
 
 ## Facts about this mod
 
-    mod id            <mod_id>              (underscores — never change this)
-    slug              <mod-slug>            (repo name and Modrinth slug)
-    package           <com.elduin.mod_id>
+    mod id            claude_friend           (underscores — never change this)
+    slug              claude-friend           (repo name and Modrinth slug)
+    package           com.elduin.claude_friend
     loader            fabric                (only fabric — see below)
-    minecraft         <1.21.11, 26.2>
-    primary version   <1.21.11>             (the one he plays)
+    minecraft         1.21.11, 26.2
+    primary version   1.21.11           (the one he plays)
     java              21 for 1.21.x, 25 for 26.x — Gradle picks this per version
 
 The mod id is baked into save files. Once a world has been played with this mod,
@@ -96,3 +96,22 @@ Handled by the **share-it** skill. Short version: bump `mod.version` in
 `stonecutter.properties.toml`, update `CHANGELOG.md` in plain words, push a
 `v<version>` tag, and the workflow publishes to Modrinth using the org's
 `MODRINTH_TOKEN`.
+
+## How Claude works
+
+- No AI and no API key. `ClaudeChat` matches words in chat ("follow", "stay",
+  "day", "food"...) and does the thing. Weather checks come first, because
+  "stop the rain" also contains "stop".
+- Saying "claude" in chat summons him if you don't have one yet. When he's
+  within 24 blocks he hears everything you say, even without his name.
+- Time and weather go through commands (`time set day`), because the Java API
+  for them changed between 1.21.11 and 26.2 and the commands didn't.
+- His voice is the Mac's `say` with the voice "Ralph", on the player's own
+  computer, sent by the `Speak` payload. The text goes in on stdin, never as
+  an argument, so a server can't slip in `say` options like `-o`. On Windows
+  and Linux he's silent.
+- He looks like Steve: vanilla `textures/entity/player/wide/steve.png` on the
+  player model layer. We don't ship a copy of Mojang's texture.
+- Elduin asked for an AI friend that is "really" Claude, with a voice he could
+  talk to. That needs an Anthropic API key, which a grown-up has to set up and
+  pay for. When one exists, `act()` is where it would plug in.
